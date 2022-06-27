@@ -6,7 +6,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 
 // Imports the LOGIN_USER mutation from the mutations.js file in the client side utils folder
-import { loginUser } from "../utils/API";
+import { LOGIN_USER } from "../utils/API";
 import Auth from "../utils/auth";
 
 const LoginForm = () => {
