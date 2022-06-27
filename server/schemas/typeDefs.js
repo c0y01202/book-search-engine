@@ -1,6 +1,7 @@
+// import the gql tagged template function
 const { gql } = require("apollo-server-express");
 
-// typeDefs
+// create our typeDefs
 const typeDefs = gql`
   type Book {
     _id: ID
