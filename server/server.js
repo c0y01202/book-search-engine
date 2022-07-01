@@ -22,7 +22,6 @@ const server = new ApolloServer({
 });
 
 //apollo server with express
-server.applyMiddleware({ app });
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
@@ -40,9 +39,29 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-});
+//server.start().then((res) => {
+//  server.applyMiddleware({ app });
+
+//  db.once("open", () => {
+ //   app.listen(PORT, () => {
+ //   
+ //   });
+//  });
+//});
+
+const startApollo = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({app})
+
+  db.once('open', ()=> {
+    app.listen(PORT, ()=>{
+      console.log(`API server running on port ${PORT}!`);
+          console.log(
+           `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+         );
+      
+    })
+  })
+}
+
+startApollo(typeDefs,resolvers)

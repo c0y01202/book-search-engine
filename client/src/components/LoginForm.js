@@ -6,7 +6,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 
 // Imports the LOGIN_USER mutation from the mutations.js file in the client side utils folder
-import { LOGIN_USER } from "../utils/API";
+import { loginUser } from "../utils/API";
 import Auth from "../utils/auth";
 
 const LoginForm = () => {
@@ -15,7 +15,7 @@ const LoginForm = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   // Assigns the LOGIN_USER mutation to the loginUser function and brings in the ability to error report
-  const [loginUser, { error }] = useMutation(LOGIN_USER);
+  const [user, { error }] = useMutation(loginUser);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -34,10 +34,10 @@ const LoginForm = () => {
 
     // Passes the data supplied by the user into the loginUser function and assigns the response to the variable data
     try {
-      const response = await loginUser(userFormData);
+      const response = await user(userFormData);
 
       // Use the token assigned to the user to log the user in
-      Auth.login(data.login.token);
+      Auth.login(response.login.token);
 
       if (error) {
         console.log(error.message);
