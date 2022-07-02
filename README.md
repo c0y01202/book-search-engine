@@ -2,7 +2,7 @@
 
 ## Summary
 
-This project utilized three directories for both front-end and back-end sides of a web application using React. A user can sign up and log in for an account, or simply search for books using the Google Book API. Both client and server directories were refactored and tested with Apollo Graphyql. After testing the application was then launched to Heroku and AtlasDB. The application required use of the Apollo server and the creation of resolvers. Mutations were then added along with a JWT to authorize users. React Router was then setup on the files in the pages directory. Finally front-end user authentication was developed with user-based mutations and user-contextualized data.
+This project utilized three directories for both front-end and back-end sides of a web application using React. A user can sign up and log in for an account, or simply search for books using the Google Book API. Both client and server directories were refactored and tested with Apollo Graphql. After testing, the application was then launched to Heroku and AtlasDB. The application required use of the Apollo server and the creation of resolvers. Mutations were then added along with a JWT to authorize users. React Router was then setup on the files in the pages directory. Finally front-end user authentication was developed with user-based mutations and user-contextualized data.
 
 ## Dependencies
 
